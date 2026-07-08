@@ -4,6 +4,7 @@ import BlogView from "./components/BlogView";
 import ComparisonMatrix from "./components/ComparisonMatrix";
 import ReadingRoutePlanner from "./components/ReadingRoutePlanner";
 import SeoDashboard from "./components/SeoDashboard";
+import LegalPages from "./components/LegalPages";
 import { Sparkles, CheckCircle, ShieldAlert, Award } from "lucide-react";
 
 export default function App() {
@@ -42,6 +43,12 @@ export default function App() {
         return <ReadingRoutePlanner />;
       case "seo":
         return <SeoDashboard />;
+      case "privacy":
+      case "legal":
+      case "cookies":
+      case "about":
+      case "contact":
+        return <LegalPages pageType={currentTab} onNavigate={setCurrentTab} />;
       default:
         return <BlogView />;
     }
@@ -117,7 +124,7 @@ export default function App() {
                   <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white block font-semibold text-[11px]">Integridad de Navegación</strong>
-                    <span className="text-[10px] text-gray-400 leading-tight block">Categorización limpia, barras laterales de TOC y menús responsivos.</span>
+                    <span className="text-[10px] text-gray-400 leading-tight block">Categorización limpia, políticas de cookies y aviso legal visible.</span>
                   </div>
                 </div>
               </div>
@@ -146,16 +153,22 @@ export default function App() {
 
           </div>
 
-          {/* Bottom attribution */}
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-sans text-gray-500">
+          {/* Bottom compliance legal navigation for AdSense reviewers */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-sans text-gray-500 border-t border-gray-900 pt-6">
             <span className="flex items-center gap-1.5">
               <Sparkles className="w-4 h-4 text-amber-400" />
               <span>Optimizado para Monetización Inteligente, Alta Retención de Lectura y SEO On-Page Técnico</span>
             </span>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-white transition-all">Políticas de AdSense</a>
+            <div className="flex flex-wrap gap-4 sm:gap-6 justify-center text-xs font-sans text-gray-400 font-semibold uppercase tracking-wider">
+              <button onClick={() => setCurrentTab("privacy")} className="hover:text-white transition-all">Política de Privacidad</button>
               <span>•</span>
-              <a href="#" className="hover:text-white transition-all">Soporte Técnico</a>
+              <button onClick={() => setCurrentTab("legal")} className="hover:text-white transition-all">Aviso Legal</button>
+              <span>•</span>
+              <button onClick={() => setCurrentTab("cookies")} className="hover:text-white transition-all">Política de Cookies</button>
+              <span>•</span>
+              <button onClick={() => setCurrentTab("about")} className="hover:text-white transition-all">Sobre Nosotros</button>
+              <span>•</span>
+              <button onClick={() => setCurrentTab("contact")} className="hover:text-white transition-all">Contacto</button>
             </div>
           </div>
 
