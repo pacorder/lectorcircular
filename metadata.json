@@ -1,0 +1,8 @@
+{
+  "name": "Book Niche Blog & SEO Planner",
+  "description": "An AdSense-optimized minimalist book blog featuring deep original literary analyses, an interactive comparative reading engine, and a publisher niche-keywords SEO workspace powered by Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
